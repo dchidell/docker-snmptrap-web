@@ -13,4 +13,4 @@ RUN apk --no-cache add net-snmp
 COPY --from=webproc /usr/local/bin/webproc /usr/local/bin/webproc
 ADD mibs.tar.gz /mibs/
 ADD snmptrapd.conf /etc/snmp/snmptrapd.conf
-ENTRYPOINT ["webproc","--on-exit","restart","--config","/etc/snmp/snmptrapd.conf","--","snmptrapd","-L","o","-f","-M","/mibs","-m","ALL"]
+ENTRYPOINT ["webproc","--on-exit","restart","--config","/etc/snmp/snmptrapd.conf","--","snmptrapd","-n","-L","o","-f","-M","/mibs","-m","ALL"]
