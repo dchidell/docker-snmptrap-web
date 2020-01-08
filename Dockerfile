@@ -14,3 +14,4 @@ COPY --from=webproc /usr/local/bin/webproc /usr/local/bin/webproc
 ADD mibs.tar.gz /mibs/
 ADD snmptrapd.conf /etc/snmp/snmptrapd.conf
 ENTRYPOINT ["webproc","--on-exit","restart","-c","/etc/snmp/snmptrapd.conf","--","snmptrapd","-n","-L","o","-f","-M","/mibs","-m","ALL"]
+EXPOSE 162/udp 8080
